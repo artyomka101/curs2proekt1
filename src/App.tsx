@@ -52,6 +52,33 @@ function App() {
           </li>
         </ul>
       </section>
+      <section className="new-book">
+        <h2 className="new-book__title">Добавить книгу</h2>
+        <form className="book-form">
+          <div className="book-form__field">
+            <label htmlFor="book-title">Название</label>
+            <input id="book-title" type="text" className="new-book__title"/>
+          </div>
+
+          <div className="book-form__field">
+            <label htmlFor="book-author">Автор</label>
+            <input id="book-author" type="text" className="new-book__author"/>
+          </div>
+
+          <div className="book-form__field">
+            <label htmlFor="book-status">Статус</label>
+            <select id="book-status">
+              <option value="want" >Хочу прочитать</option>
+              <option value="reading">Читаю сейчас</option>
+              <option value="done">Прочитано</option>
+            </select>
+          </div>
+
+          <button className="new-book__button" type="submit">
+            Добавить книгу
+          </button>
+        </form>
+      </section>
     </main>
   );
 }
