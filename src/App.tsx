@@ -1,4 +1,7 @@
 import "./App.css";
+import WeatherAdvice from "./components/WeatherAdvice";
+import WorkshopCard from "./components/WorkshopCard";
+
 
 function App() {
   const pageTitle = "Читательский дневник";
@@ -11,6 +14,8 @@ function App() {
 
   return (
     <main className="page">
+      <WeatherAdvice/>
+      <WorkshopCard/>
       <header className="page__header">
         <h1 className="page__title">{pageTitle}</h1>
         <p className="page__descr">{pageSubtitle}</p>
