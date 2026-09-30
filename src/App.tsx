@@ -1,6 +1,8 @@
 import "./App.css";
 import WeatherAdvice from "./components/WeatherAdvice";
 import WorkshopCard from "./components/WorkshopCard";
+import {books} from "./data/books";
+import { BookList } from "./components/BookList/BookList";
 
 
 function App() {
@@ -37,26 +39,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="books">
-        <h2 className="books__title">Мои книги</h2>
-        <ul className="books__list">
-          <li className="books__item">
-            <h3 className="books__name">1984</h3>
-            <p className="books__author">Джорд Оруэлл</p>
-            <p className="books__status">Читаю</p>
-          </li>
-          <li className="books__item">
-            <h3 className="books__name">Эхо стеклянного города</h3>
-            <p className="books__author">Максим Корсаков</p>
-            <p className="books__status">Читаю</p>
-          </li>
-          <li className="books__item">
-            <h3 className="books__name">Полночь в лавке забытых вещей</h3>
-            <p className="books__author">Элена Моран</p>
-            <p className="books__status">Читаю</p>
-          </li>
-        </ul>
-      </section>
+     <BookList books={books} />
       <section className="new-book">
         <h2 className="new-book__title">Добавить книгу</h2>
         <form className="book-form">
