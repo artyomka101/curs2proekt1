@@ -1,9 +1,21 @@
 import "./App.css";
-import WeatherAdvice from "./components/WeatherAdvice";
-import WorkshopCard from "./components/WorkshopCard";
-import {books} from "./data/books";
+// import WeatherAdvice from "./components/WeatherAdvice";
+// import WorkshopCard from "./components/WorkshopCard";
+import { books } from "./data/books";
 import { BookList } from "./components/BookList/BookList";
+import styled from "@emotion/styled";
 
+const Page = styled.div`
+  min-height: 100vh;
+  padding: 20px 48px;
+  background: linear-gradient(#fbfaf7, #f6f1ea);
+  color: #24211d;
+`;
+
+const Container = styled.div`
+  max-width: 1320px;
+  margin: 0 auto;
+`;
 
 function App() {
   const pageTitle = "Читательский дневник";
@@ -15,59 +27,11 @@ function App() {
   const plannedBook = totalBook - readingBook - completedBook;
 
   return (
-    <main className="page">
-      <WeatherAdvice/>
-      <WorkshopCard/>
-      <header className="page__header">
-        <h1 className="page__title">{pageTitle}</h1>
-        <p className="page__descr">{pageSubtitle}</p>
-      </header>
-      <section className="stats">
-        <h2 className="stats__title">Статистика</h2>
-        <div className="stats__list">
-          <div className="stats__item">
-            <p>Всего книг: {totalBook}</p>
-          </div>
-          <div className="stats__item">
-            <p>Читаю сейчас: {readingBook}</p>
-          </div>
-          <div className="stats__item">
-            <p>Планирую: {plannedBook}</p>
-          </div>
-          <div className="stats__item">
-            <p>Закончено: {completedBook}</p>
-          </div>
-        </div>
-      </section>
-     <BookList books={books} />
-      <section className="new-book">
-        <h2 className="new-book__title">Добавить книгу</h2>
-        <form className="book-form">
-          <div className="book-form__field">
-            <label htmlFor="book-title">Название</label>
-            <input id="book-title" type="text" className="new-book__title"/>
-          </div>
-
-          <div className="book-form__field">
-            <label htmlFor="book-author">Автор</label>
-            <input id="book-author" type="text" className="new-book__author"/>
-          </div>
-
-          <div className="book-form__field">
-            <label htmlFor="book-status">Статус</label>
-            <select id="book-status">
-              <option value="want" >Хочу прочитать</option>
-              <option value="reading">Читаю сейчас</option>
-              <option value="done">Прочитано</option>
-            </select>
-          </div>
-
-          <button className="new-book__button" type="submit">
-            Добавить книгу
-          </button>
-        </form>
-      </section>
-    </main>
+    <Page>
+      <Container>
+        <BookList books={books} />
+      </Container>
+    </Page>
   );
 }
 
