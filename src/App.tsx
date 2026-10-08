@@ -4,6 +4,7 @@ import "./App.css";
 import { books } from "./data/books";
 import { BookList } from "./components/BookList/BookList";
 import styled from "@emotion/styled";
+import ButtonDemo from "./practice/book-format/StyledButtonDemo";
 
 const Page = styled.div`
   min-height: 100vh;
@@ -18,18 +19,18 @@ const Container = styled.div`
 `;
 
 function App() {
-  const pageTitle = "Читательский дневник";
-  const pageSubtitle = "Мои прочитанные и планируемые книги";
-  const totalBook = 3;
-  const readingBook = 1;
-  const completedBook = 1;
-
-  const plannedBook = totalBook - readingBook - completedBook;
+  // const pageTitle = "Читательский дневник";
+  // const pageSubtitle = "Мои прочитанные и планируемые книги";
+  // const totalBook = 3;
+  // const readingBook = 1;
+  // const completedBook = 1;
+  // const plannedBook = totalBook - readingBook - completedBook;
 
   return (
     <Page>
       <Container>
         <BookList books={books} />
+        <ButtonDemo/>
       </Container>
     </Page>
   );
