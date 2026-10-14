@@ -1,13 +1,13 @@
+import { useState } from "react";
 import "./App.css";
-// import WeatherAdvice from "./components/WeatherAdvice";
-// import WorkshopCard from "./components/WorkshopCard";
-import { books } from "./data/books";
+import { type Book } from "./types/book";
+import initialBooks from "./data/books";
 import { BookList } from "./components/BookList/BookList";
 import styled from "@emotion/styled";
 import ButtonDemo from "./practice/book-format/StyledButtonDemo";
 import Stats from "./components/Stats/Stats";
-import { TicketStatsDemo } from "./practice/TicketStatsDemo";
-import { ProductsStatsDemo } from "./practice/WarehouseStatsDemo";
+import { TaskStateDemo } from "./practice/TaskStateDemo";
+
 const Page = styled.div`
   min-height: 100vh;
   padding: 20px 48px;
@@ -21,22 +21,19 @@ const Container = styled.div`
 `;
 
 function App() {
-  // const pageTitle = "Читательский дневник";
-  // const pageSubtitle = "Мои прочитанные и планируемые книги";
-  // const totalBook = 3;
-  // const readingBook = 1;
-  // const completedBook = 1;
-  // const plannedBook = totalBook - readingBook - completedBook;
+  const [books, setBooks] = useState<Book[]>(initialBooks);
 
+  const deleteBook = (id: number) => {
+    setBooks((currentBooks) => currentBooks.filter((book)=> book.id !== id));
+  }
   return (
     <Page>
       <Container>
         <Stats books = {books}/>
-        <BookList books={books}/>
-        <TicketStatsDemo/>
-        <ProductsStatsDemo/>
+        <BookList books={books} deleteBook = {deleteBook}/>
         <ButtonDemo/>
       </Container>
+      <TaskStateDemo />
     </Page>
   );
 }

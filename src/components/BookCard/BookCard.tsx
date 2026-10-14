@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 interface BookCardProps {
   book: Book;
+  deleteBook: (id: number) => void
 }
 
 interface StatusStyleProps {
@@ -166,7 +167,7 @@ const statusText = {
   done: "Прочитано",
 };
 
-export function BookCard({ book }: BookCardProps) {
+export function BookCard({ book, deleteBook }: BookCardProps) {
   const rating = book.rating || 0;
   const stars = "★".repeat(rating);
 
@@ -196,7 +197,7 @@ export function BookCard({ book }: BookCardProps) {
           <Info>Оценка будет доступна после прочтения</Info>
         )}
       </div>
-      <DeleteButton type="button" aria-label="Удалить книгу">
+      <DeleteButton onClick={()=>deleteBook(book.id)} type="button" aria-label="Удалить книгу">
         🗑️
       </DeleteButton>
     </Card>

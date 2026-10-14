@@ -29,3 +29,5 @@ export const books: Book[] = [
         note: "Чудо" 
     }
 ];
+
+export default books
