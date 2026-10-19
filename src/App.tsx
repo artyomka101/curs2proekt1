@@ -7,7 +7,7 @@ import styled from "@emotion/styled";
 import Stats from "./components/Stats/Stats";
 import { BookForm } from "./components/BookForm/BookForm";
 import { EventFormDemo } from "./components/EventFormDemo/EventFormDemo";
-
+import { ProfileSettings } from "./components/ProfileSettings/ProfileSettings";
 const Page = styled.div`
   min-height: 100vh;
   padding: 20px 48px;
@@ -33,6 +33,7 @@ function App() {
         <BookList books={books} deleteBook = {deleteBook}/>
         <BookForm/>
         <EventFormDemo />
+        <ProfileSettings/>
       </Container>
     </Page>
   );
