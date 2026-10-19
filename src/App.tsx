@@ -4,9 +4,9 @@ import { type Book } from "./types/book";
 import initialBooks from "./data/books";
 import { BookList } from "./components/BookList/BookList";
 import styled from "@emotion/styled";
-import ButtonDemo from "./practice/book-format/StyledButtonDemo";
 import Stats from "./components/Stats/Stats";
-import { TaskStateDemo } from "./practice/TaskStateDemo";
+import { BookForm } from "./components/BookForm/BookForm";
+import { EventFormDemo } from "./components/EventFormDemo/EventFormDemo";
 
 const Page = styled.div`
   min-height: 100vh;
@@ -31,9 +31,9 @@ function App() {
       <Container>
         <Stats books = {books}/>
         <BookList books={books} deleteBook = {deleteBook}/>
-        <ButtonDemo/>
+        <BookForm/>
+        <EventFormDemo />
       </Container>
-      <TaskStateDemo />
     </Page>
   );
 }
