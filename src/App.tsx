@@ -8,6 +8,7 @@ import Stats from "./components/Stats/Stats";
 import { BookForm } from "./components/BookForm/BookForm";
 import { EventFormDemo } from "./components/EventFormDemo/EventFormDemo";
 import { ProfileSettings } from "./components/ProfileSettings/ProfileSettings";
+import { WeekendIdeasDemo } from "./practice/WeekendIdeasDemo/WeekendIdeasDemo";
 const Page = styled.div`
   min-height: 100vh;
   padding: 20px 48px;
@@ -26,12 +27,22 @@ function App() {
   const deleteBook = (id: number) => {
     setBooks((currentBooks) => currentBooks.filter((book)=> book.id !== id));
   }
+
+  const addBook = (book: Omit<Book,"id">) => {
+    const newBook: Book = {
+      id: Date.now(),
+      ...book,
+    }
+
+    setBooks((currentBooks) => [...currentBooks,newBook]);
+  };
   return (
     <Page>
       <Container>
         <Stats books = {books}/>
         <BookList books={books} deleteBook = {deleteBook}/>
-        <BookForm/>
+        <BookForm addBook ={addBook}/>
+        <WeekendIdeasDemo />
         <EventFormDemo />
         <ProfileSettings/>
       </Container>
