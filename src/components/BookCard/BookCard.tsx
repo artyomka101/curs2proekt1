@@ -1,9 +1,10 @@
 import { type Book, type BookStatus } from "../../types/book";
 import styled from "@emotion/styled";
+import { TrashIcon } from "../../icons/icons";
 
 interface BookCardProps {
   book: Book;
-  deleteBook: (id: number) => void
+  deleteBook: (id: number) => void;
 }
 
 interface StatusStyleProps {
@@ -197,8 +198,11 @@ export function BookCard({ book, deleteBook }: BookCardProps) {
           <Info>Оценка будет доступна после прочтения</Info>
         )}
       </div>
-      <DeleteButton onClick={()=>deleteBook(book.id)} type="button" aria-label="Удалить книгу">
-        🗑️
+      <DeleteButton
+        onClick={() => deleteBook(book.id)}
+        aria-label="Удалить книгу"
+      >
+        <TrashIcon />
       </DeleteButton>
     </Card>
   );

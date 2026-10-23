@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState, type FormEvent } from "react";
 import { type BookStatus, type Book } from "../../types/book";
-
+import { InfoIcon } from "../../icons/icons";
 interface BookFormProps {
   addBook: (book: Omit<Book, "id">) => void;
 }
@@ -42,7 +42,7 @@ const Input = styled.input`
   &:focus {
     outline: none;
     border-color: #9f8b76;
-    box-shadow: 0 0 0 3px rgba(159, 139, 118, 0.15); 
+    box-shadow: 0 0 0 3px rgba(159, 139, 118, 0.15);
   }
 `;
 
@@ -201,7 +201,11 @@ export function BookForm({ addBook }: BookFormProps) {
         </>
       ) : (
         <Hint>
-          Поля оценки и заметки появятся, если вы выберете статус "Прочитано"
+          <InfoIcon />
+
+          <span>
+            Поля оценки и заметки появятся, если вы выберете статус «Прочитано».
+          </span>
         </Hint>
       )}
 
